@@ -8,15 +8,19 @@ import React from 'react';
 const App = () => {
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Website Under Construction</h1>
-      <p style={styles.message}>
-        We're working hard to bring you something awesome. Stay tuned!
-      </p>
-      <div style={styles.loader}></div>
-      <p style={styles.eta}>Estimated Launch: Coming Soon!</p>
-      <button style={styles.button} onClick={() => window.location.href = '/'}>
-        Return to Home
-      </button>
+      <div style={styles.card}>
+        <h1 style={styles.title}>We're Under Construction</h1>
+        <p style={styles.message}>
+          Our website is currently undergoing scheduled maintenance and improvements. Please check back soon for an improved experience!
+        </p>
+        <div style={styles.iconContainer}>
+          🚧
+        </div>
+        <p style={styles.eta}>Expected Launch: Coming Soon</p>
+        <button style={styles.button} onClick={() => window.location.href = '/'}>
+          Go to Homepage
+        </button>
+      </div>
     </div>
   );
 };
@@ -24,56 +28,63 @@ const App = () => {
 const styles = {
   container: {
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    backgroundColor: '#f0f0f0',
+    background: 'linear-gradient(135deg, #3498db, #8e44ad)',
+    color: '#fff',
+    fontFamily: 'Arial, sans-serif',
     textAlign: 'center',
-    color: '#333',
+  },
+  card: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: '15px',
+    padding: '2em',
+    maxWidth: '400px',
+    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
   },
   title: {
-    fontSize: '3em',
+    fontSize: '2.5em',
     fontWeight: 'bold',
-    marginBottom: '0.5em',
+    marginBottom: '0.3em',
   },
   message: {
-    fontSize: '1.5em',
+    fontSize: '1.1em',
+    lineHeight: '1.5',
     marginBottom: '1em',
   },
-  loader: {
-    width: '50px',
-    height: '50px',
-    border: '6px solid #ccc',
-    borderTop: '6px solid #3498db',
-    borderRadius: '50%',
-    animation: 'spin 1s linear infinite',
-    marginBottom: '1em',
+  iconContainer: {
+    fontSize: '3em',
+    margin: '1em 0',
   },
   eta: {
-    fontSize: '1.2em',
-    color: '#777',
+    fontSize: '1em',
+    color: '#eee',
     marginBottom: '1.5em',
   },
   button: {
-    padding: '0.5em 1em',
+    padding: '0.8em 1.5em',
     fontSize: '1em',
-    color: '#fff',
-    backgroundColor: '#3498db',
+    color: '#3498db',
+    backgroundColor: '#fff',
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
+    fontWeight: 'bold',
+    transition: 'background-color 0.3s ease',
   },
 };
 
-// Keyframes for the spinner animation
+// Adding hover effect to button
 const styleSheet = document.styleSheets[0];
 styleSheet.insertRule(`
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  button:hover {
+    background-color: #ddd;
   }
 `, styleSheet.cssRules.length);
+
+
+
 
 export default App;
 
